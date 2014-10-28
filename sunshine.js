@@ -5,7 +5,10 @@
   Bonus: Use RegEx to create the array
 */
 function reverseString(str) {
-
+  var data = str.split("");
+  var arr = [];
+  arr.push(data.reverse().join(""));
+  return arr.toString();
 }
 
 /**
@@ -16,8 +19,12 @@ function reverseString(str) {
   parameter into the second to last position of the array.
   Then convert the array to a string and return it.
 */
-function spliceString(str, char) {
-
+function spliceString(str, char){
+    var temp = str.split("");
+    var popped = temp.pop();
+    temp.unshift(popped);
+    temp.splice(-1,0,char);
+    return temp.join("");
 }
 
 /**
@@ -27,6 +34,14 @@ function spliceString(str, char) {
   Note: For now, do not worry about words like "chicken".
   Instead of "ickenchay", it should just become "hickencay".
 */
+//index [0] becomes index [2], add y to index.length;
 function speakPigLatin(strArray) {
-
+  var arr = strArray.slice();
+  //removes first element and returns
+  var temp = strArray.shift();  
+  // want to push to .length-1 or -1 
+  strArray.splice(-1,0,temp);
+  var holdy = "y";
+  strArray.push(holdy);
+  return strArray;
 }
